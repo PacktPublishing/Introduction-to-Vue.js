@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Activity B</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js"></script>
+</head>
+<body>
+
+  <div id="app">
+    <pre>{{ JSON.stringify(person1) }}</pre>
+    <pre>{{ JSON.stringify(person2) }}</pre>
+  </div>
+
+  <script>
+    const app = new Vue({
+      el: '#app',
+
+      data () {
+        return {
+          person1: { name: 'Person 1' },
+          person2: { name: 'Person 2' }
+        }
+      },
+
+      mounted () {
+        // this.person1.age = 21 => Wrong!
+        this.$set(this.person2, 'age', 21)
+        this.person1 = Object.assign({}, this.person1, { age: 21, id: 1 })
+      }
+    })
+
+    app.$data.person1.age = 88
+  </script>
+</body>
+</html>

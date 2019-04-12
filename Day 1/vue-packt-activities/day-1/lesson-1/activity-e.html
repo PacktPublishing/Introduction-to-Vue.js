@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Activity E</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js"></script>
+</head>
+<body>
+
+  <div id="app">
+    <form action="">
+      <input type="text" v-model="firstName" placeholder="First name">
+      <input type="text" v-model="lastName" placeholder="Last name">
+      <span>{{ fullName }}</span>
+    </form>
+  </div>
+
+  <script>
+    new Vue({
+      el: '#app',
+
+      data () {
+        return {
+          firstName: '',
+          lastName: ''
+        }
+      },
+
+      computed: {
+        fullName () {
+          return `${this.firstName} ${this.lastName}`
+        }
+      },
+
+      watch: {
+        fullName (newVal, oldVal) {
+          console.log(newVal, oldVal)
+        }
+      }
+    })
+  </script>
+</body>
+</html>

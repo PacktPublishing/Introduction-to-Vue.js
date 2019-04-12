@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Activity B</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js"></script>
+</head>
+<body>
+
+  <div id="app">
+    <ul>
+      <li>{{ true }}</li>
+      <li>{{ true && false }}</li>
+      <li>{{ 'string' + ' ' + 'other string' }}</li>
+      <li>{{ `template string ${title}` }}</li>
+      <li>{{ true ? 'ternary' : '' }}</li>
+      <li>{{ 13 }}</li>
+      <li>{{ 1 + 1 + 2 * 8 }}</li>
+      <li>{{ title.toUpperCase() }}</li>
+      <li>{{ JSON.stringify(obj) }}</li>
+    </ul>
+  </div>
+
+  <script>
+    new Vue({
+      el: '#app',
+
+      data () {
+        return {
+          title: 'Hello Vue!',
+          obj: { foo: 'bar' }
+        }
+      }
+    })
+  </script>
+</body>
+</html>

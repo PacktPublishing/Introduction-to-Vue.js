@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Activity D</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js"></script>
+</head>
+<body>
+
+  <div id="app">
+    <form action="">
+      <input type="text" v-model="link" placeholder="link">
+      <span>{{ link }}</span>
+    </form>
+
+    <a target="_blank" :href="link">Dynamic Link</a>
+  </div>
+
+  <script>
+    new Vue({
+      el: '#app',
+
+      data () {
+        return {
+          link: ''
+        }
+      }
+    })
+  </script>
+</body>
+</html>

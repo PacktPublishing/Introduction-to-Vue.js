@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Activity C</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js"></script>
+</head>
+<body>
+
+  <div id="app">
+    <p>
+      Selected:
+      <span v-if="option === 'a'">A</span>
+      <span v-else-if="option === 'b'">B</span>
+      <span v-else>C</span>
+    </p>
+
+    <ul>
+      <li v-for="p in players" :key="p.name">{{ p.name }}</li>
+    </ul>
+
+    <ul>
+      <li v-for="(p, i) in players" :key="p.name">{{ 1 + ' ' + p.name }}</li>
+    </ul>
+
+    <ul>
+      <li v-for="i in 20">{{ i }}</li>
+    </ul>
+  </div>
+
+  <script>
+    new Vue({
+      el: '#app',
+
+      data () {
+        return {
+          option: 'c',
+          players: [
+            { name: 'Chilavert' },
+            { name: 'Messi' },
+            { name: 'Vargas' }
+          ]
+        }
+      }
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Activity D</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js"></script>
+</head>
+<body>
+
+  <div id="app">
+    <button v-show="!showModal" @click="toggleModal">Show Modal</button>
+    <modal v-show="showModal" @toggle="toggleModal">
+      <h3>This is custom </h3>
+      <b>HTML</b>
+      <a href="#">inside the modal</a>
+    </modal>
+  </div>
+
+  <script>
+    Vue.component('modal', {
+      template: `<div>
+        <h3>Modal</h3>
+        <p>
+          <slot></slot>
+          <a href='#' @click="toggle">X</a>
+        </p>
+      </div>`,
+
+      methods: {
+        toggle () {
+          this.$emit('toggle')
+        }
+      }
+    })
+
+    new Vue({
+      el: '#app',
+
+      data () {
+        return {
+          showModal: true
+        }
+      },
+
+      methods: {
+        toggleModal () {
+          this.showModal = !this.showModal
+        }
+      }
+    })
+  </script>
+</body>
+</html>

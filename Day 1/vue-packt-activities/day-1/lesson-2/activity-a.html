@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Activity A</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js"></script>
+</head>
+<body>
+
+  <div id="app">
+    <h1>Counter</h1>
+    <counter></counter>
+    <counter></counter>
+    <counter></counter>
+  </div>
+
+  <script>
+    Vue.component('counter', {
+      data () {
+        return {
+          count: 0
+        }
+      },
+
+      template: `<div>
+        <button @click="increment">+</button>
+        <button @click="decrement">-</button>
+        <span>{{ count }}</span>
+      </div>`,
+
+      created () {
+        console.log('First created...')
+      },
+
+      mounted () {
+        console.log('First mounted...')
+      },
+
+      methods: {
+        increment () {
+          this.count += 1
+        },
+
+        decrement () {
+          this.count -= 1
+        }
+      }
+    })
+
+    new Vue({
+      el: '#app'
+    })
+  </script>
+</body>
+</html>
